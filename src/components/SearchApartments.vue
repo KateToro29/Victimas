@@ -13,7 +13,7 @@
             </template>
             <template #option="slotProps">
                 <div class="flex items-center">
-                    <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`mr-2 flag flag-${slotProps.option.code.toLowerCase()}`" style="width: 18px" />
+                    <img :alt="slotProps.option.label" :src="slotProps.flag" :class="`mr-2 flag flag-${slotProps.option.code.toLowerCase()}`" style="width: 18px" />
                     <div>{{ slotProps.option.name }}</div>
                 </div>
             </template>
@@ -34,6 +34,9 @@
 
 <script setup>
 import { ref } from "vue";
+import Select from "primevue/select";
+import Button from "primevue/button";
+
 
 const selectedCountry = ref();
 const departamentos = ref([
