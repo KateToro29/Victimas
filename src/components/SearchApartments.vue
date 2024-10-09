@@ -4,7 +4,7 @@
         <Select v-model="selectedCountry" :options="departamentos" optionLabel="name" placeholder="Seleccione el Departamento" class="w-full md:w-56">
             <template #value="slotProps">
                 <div v-if="slotProps.value" class="flex items-center">
-                    <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`mr-2 flag flag-${slotProps.value.code.toLowerCase()}`" style="width: 18px" />
+                    <img :alt="slotProps.value.label" :src="slotProps.flag" :class="`mr-2 flag flag-${slotProps.value.code.toLowerCase()}`" style="width: 18px" />
                     <div>{{ slotProps.value.name }}</div>
                 </div>
                 <span v-else>
@@ -13,7 +13,7 @@
             </template>
             <template #option="slotProps">
                 <div class="flex items-center">
-                    <img :alt="slotProps.option.label" :src="slotProps.flag" :class="`mr-2 flag flag-${slotProps.option.code.toLowerCase()}`" style="width: 18px" />
+                    <img :alt="slotProps.option.label" :src="slotProps.flag" :class="`mr-2 flag flag-${slotProps.option.code.toLowerCase()}`" style="inline-size: 18px" />
                     <div>{{ slotProps.option.name }}</div>
                 </div>
             </template>
@@ -29,6 +29,8 @@
                 </div>
             </template>
         </Select>
+        
+        <img :src="amazonasFlag" alt="">
     </div>
 </template>
 
@@ -36,11 +38,12 @@
 import { ref } from "vue";
 import Select from "primevue/select";
 import Button from "primevue/button";
+import amazonasFlag from '../assets/webp/amazonas.webp';
 
 
 const selectedCountry = ref();
 const departamentos = ref([
-    { name: 'Amazonas', code: '91', flag:'victimas/src/assets/webp/amazonas.webp' },
+    { name: 'Amazonas', code: '91', flagUrl: 'amazonasFlag'},
     { name: 'Antioquia', code: '05', flag:'' },
     { name: 'Arauca', code: '81', flag:'' },
     { name: 'Atlantico', code: '08', flag:'' },
