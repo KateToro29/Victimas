@@ -1,9 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  content: [],
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'], // Reemplaza 'purge' por 'content'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        customPurple: '#7A1F7E',
+        cardBackground: '#D9D9D9',  // Fondo para la tarjeta
+        titleBackground: '#FFBF00',  // Fondo para el título
+      },
+    },
   },
   plugins: [],
 }
